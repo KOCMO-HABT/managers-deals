@@ -41,8 +41,8 @@ function GetData($grid_id, $filter_id)
             'data' => $value,
             'columns' => [
                 'ASSIGNED_BY_ID' => '<a href="/company/personal/user/' . $value['ASSIGNED_BY_ID'] . '/">' . $value['ASSIGNED_BY_NAME'] . ' ' . $value['ASSIGNED_BY_LAST_NAME'] . '</a>',
-                'FAILED' => "{$value['FAILED']} %",
-                'SUCCESS' => "{$value['SUCCESS']} %",
+                'FAILED' => "{$value['FAILED']} ({$value['FAILED_PERCENT']} %)",
+                'SUCCESS' => "{$value['SUCCESS']} ({$value['SUCCESS_PERCENT']} %)",
                 'INCOME' => number_format($value['INCOME'], 2, ',', ' '),
                 'AVG_PRICE_TOTAL' => number_format($value['AVG_PRICE_TOTAL'], 2, ',', ' '),
                 'AVG_PRICE_SUCCESS' => number_format($value['AVG_PRICE_SUCCESS'], 2, ',', ' '),
