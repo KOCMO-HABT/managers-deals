@@ -50,7 +50,7 @@ function Grid($grid_id, $filter_id)
             "SHOW_SELECTED_COUNTER" => false,
             "SHOW_TOTAL_COUNTER" => true,
             "TOTAL_ROWS_COUNT" => $total,
-            "SHOW_PAGESIZE" => true,
+            "SHOW_PAGESIZE" => false,
             "SHOW_ACTION_PANEL" => true,
             "ALLOW_COLUMNS_SORT" => true,
             "ALLOW_COLUMNS_RESIZE" => true,
