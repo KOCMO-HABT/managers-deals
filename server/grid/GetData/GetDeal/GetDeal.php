@@ -35,7 +35,7 @@ function GetDeal($filter_id)
     ];
 
     // дополняем фильтр ответсвенными
-    $arFilter = AdditionalFilter($arFilter, $paramsFilter);
+    if ($paramsFilter['ASSIGNED_BY_ID']) $arFilter = AdditionalFilter($arFilter, $paramsFilter);
 
     // получаем сделки созданные за данынй периуд
     $Element = CCrmDeal::GetListEx([], $arFilter, false, false, $arSelect);
