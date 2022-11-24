@@ -8,13 +8,23 @@ require_once(__DIR__ . "/TotalAll.php");
 \Bitrix\Main\Loader::includeModule('crm');
 
 
-function GetData($filter_id)
+function GetData($grid_id, $filter_id)
 {
     $list = [];
 
     // параметры сортировки лидов
     $by = isset($_GET['by']) ? $_GET['by'] : 'INCOME';
     $order = isset($_GET['order']) ? $_GET['order'] : 'desc';
+
+    // получаем объект опций таблицы
+    $gridOptions = new CGridOptions($grid_id);
+    // узнаём пользовательские параметры сортировки
+    $SortParams = $gridOptions->GetSorting()['sort'];
+    // если параметры не заданы, то устанавливаем значения по умолчанию
+    if (count($SortParams) === 0) {
+        $gridOptions->SetSorting('INCOME', 'desc');
+        $gridOptions->Save();
+    }
 
     // ?<--------------------------------------------------------------------------------------------------------------->
 

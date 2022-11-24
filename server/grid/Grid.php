@@ -15,7 +15,7 @@ function Grid($grid_id, $filter_id)
     * $list - список строк дял таблицы
     * $total - количество всех элементов
     */
-    [$list, $total] = GetData($filter_id);
+    [$list, $total] = GetData($grid_id, $filter_id);
 
     $columns = GetColumns();
 
