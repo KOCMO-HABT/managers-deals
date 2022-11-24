@@ -6,7 +6,7 @@ require_once(__DIR__ . "/GetData/GetData.php");
 require_once(__DIR__ . "/GetColumns.php");
 
 /*
- * иницеализируем таблицу 
+ * инициализируем таблицу 
  */
 function Grid($grid_id, $filter_id)
 {
@@ -15,7 +15,7 @@ function Grid($grid_id, $filter_id)
     * $list - список строк дял таблицы
     * $total - количество всех элементов
     */
-    [$list, $total] = GetData($grid_id, $filter_id);
+    [$list, $total] = GetData($filter_id);
 
     $columns = GetColumns();
 

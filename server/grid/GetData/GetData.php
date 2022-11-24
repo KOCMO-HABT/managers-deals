@@ -1,6 +1,5 @@
 <?
 
-
 require_once(__DIR__ . "/GetDeal/GetDeal.php");
 require_once(__DIR__ . "/GetDataAnalysis.php");
 require_once(__DIR__ . "/TotalAll.php");
@@ -9,19 +8,8 @@ require_once(__DIR__ . "/TotalAll.php");
 \Bitrix\Main\Loader::includeModule('crm');
 
 
-use Bitrix\Main\Grid\Options as GridOptions;
-use Bitrix\Main\Ui\Filter\Options as FilterOptions;
-
-
-function GetData($grid_id, $filter_id)
+function GetData($filter_id)
 {
-
-    // получаем настройки фильтра
-    $filter_options = new FilterOptions($filter_id);
-    $paramsFilter = $filter_options->getFilter();
-
-    // ?<--------------------------------------------------------------------------------------------------------------->
-
     $list = [];
 
     // параметры сортировки лидов
@@ -30,10 +18,10 @@ function GetData($grid_id, $filter_id)
 
     // ?<--------------------------------------------------------------------------------------------------------------->
 
-    // получаем сделки сгруперованные по ответсвенным 
+    // получаем сделки сгруппированные по ответственным 
     $data = GetDeal($filter_id);
 
-    // подсчитываем статестические значения  
+    // подсчитываем статистические значения  
     $data = GetDataAnalysis($data);
 
     foreach ($data as $key => $value) {
